@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/Manoranjan-Sethi/k8s-homelab-infrastructure.git
     targetRevision: HEAD
-    path: applications/monitoring/chart
+    path: applications/monitoring/charts  
   destination:
     server: https://kubernetes.default.svc
     namespace: monitoring
