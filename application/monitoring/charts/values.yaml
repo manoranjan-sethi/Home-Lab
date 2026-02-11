@@ -1,0 +1,24 @@
+# Disable webhooks to fix the TLS handshake error in home labs
+prometheusOperator:
+  admissionWebhooks:
+    enabled: false
+    patch:
+      enabled: false
+
+# Disable persistent storage for now to ensure pods start without PVs
+prometheus:
+  prometheusSpec:
+    storageSpec:
+      emptyDir:
+        medium: ""
+
+alertmanager:
+  alertmanagerSpec:
+    storage:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: ""
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 1Gi
